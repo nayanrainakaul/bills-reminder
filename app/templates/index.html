@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+{% block head %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!-- Page title -->
+<title>Set and Get</title>
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+{% block body %}
+<!--<div class="container col-lg-6 col-md-6 col-sm-12">
+  <center>-->
+  <!-- Welcome to and Bill Reminder Heading -->
+  <!--{% if current_user.is_authenticated %}
+  <h5 class="second-animation">Welcome, {{current_user.name}}</h5>
+  {% else %}
+  <h5 class="second-animation">Welcome</h5>
+  {% endif %}
+  <h2 class="first-animation">Set & Get</h2>-->
+
+  <!-- Add Reminder Button -->
+  <!--<a class="btn btn-outline-light" href="{{url_for('main.add')}}" role="button">
+    <i class="fas fa-plus-circle"></i> Add Reminder</a>
+  <br>-->
+
+  <!-- {% if current_user.is_authenticated %}
+    <a class='btn btn-primary' href="{{url_for('auth.logout')}}">Logout</a>
+    {% else %}
+    <a class='btn btn-primary' href="{{url_for('auth.login')}}">Login</a>
+    {% endif %} -->
+  <!--</center>
+</div>-->
+<div class="container-fluid grey-container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="hero-content"> 
+                    <h1 class="_mg-t-md" >You Set, <br> We Remind.</h1> 
+                    <h6>
+                        Easy access to setting daily or weekly reminders as per your schedule. Receive reminders via email for convenience. A platform keeping check on your daily/weekly/monthly expenditures and creating a statistics for the same. Receive financial advice and interact with other people on the community built platform.
+                    </h6> 
+                    <button id="get-started-btn" class="started-button" onclick="location.href = 'https://bills-reminder-app.herokuapp.com/auth/login';">Get Started - It's Free!</button>
+                    <button id="get-started-btn" class="guide-button" onclick="location.href = 'https://bills-reminder-app.herokuapp.com/guide';">Helpguide to Set&Get</button>  
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="image-div">
+                    <img src="../static/img/home3.png" class="home-image"alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="home-section"> 
+        <div style="width: 70%;">  
+            <img src="../static/img/responsive-site.png" alt="" style="width: 100vw;">
+        </div> 
+    </section>
+
+
+    <div class="container-fluid grey-container" >
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="grid_1-2 grid_1-sm" style="width: 90%;height: 100%;"> 
+                    <h4>CONVENIENT</h4> 
+                    <h2>Save your time</h2> 
+                    <p>
+                       Lost a lot of time while searching for bill reminders in a sea of reminders? Use Set&Get bill reminders to make your life easier and save time to do the things that really matter. Remind yourself of all the bills before the due date so that you will never have to pay late fees again in your lifetime.
+                    </p> 
+                </div> 
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="image-div"> 
+                    <img src="../static/img/home2.png" class="home-image" alt=""> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="image-div"> 
+                    <img src="../static/img/home.png" class="home-image" alt="">  
+                </div>   
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="grid_1-2 grid_1-sm" style="width: 90%;"> 
+                    <h4>ACCESSIBLE</h4> 
+                    <h2>Keep track of all your bills</h2> 
+                    <p>
+                       Organize your bills in one easy to use app. Maintains all your paid and unpaid bills at one place to stay organized and achieve great things. All your bills are automatically synced across all of your devices, giving you ultimate control.
+                    </p> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid grey-container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="grid_1-2 grid_1-sm"style="width: 90%;"> 
+                    <h4>GUIDANCE</h4> 
+                    <h2>Get advice from experts on personal finance</h2> 
+                    <p>
+                        We believe there’s nothing more unstoppable than when people come together.Our mission is to create a global community of diverse individuals who will support, challenge, and inspire one another by providing a platform for financing, expenditure analysis, and money savings.
+                    </p> 
+                </div> 
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="image-div"> 
+                    <img src="../static/img/discussion.png" class="home-image" alt=""> 
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="image-div"> 
+                    <img src="../static/img/add5.png" class="home-image" alt="">  
+                </div>   
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="grid_1-2 grid_1-sm" style="width: 90%;"> 
+                    <h4>SCRUTINIZE</h4> 
+                    <h2>Better visualization of expenditure</h2> 
+                    <p>
+                        Get categorized analysis of all your expenditure for better visualization. Provides user the chance to plan future expenditure judiciously with better understanding. We ensure your data is easily understandable and viewable.
+                    </p> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer container-fluid" style="padding: 0;"> 
+        <div class="wrap-size-lg container-fluid" style="padding: 35px;"> 
+            <h3>About SET &amp; GET</h3> 
+            <div class="row grid-spacing-sm"> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    <ul class="footer-nav"> 
+                        <li> 
+                            <a rel="nofollow noreferrer" href="mailto:set.get567@gmail.com"> Contact us </a> 
+                        </li> 
+                        <li> 
+                            <a href="https://github.com/apoorva-01/Bills-Web-App-Using-Flask"> Github Repository </a> 
+                        </li> 
+                    </ul> 
+                </div> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    <ul class="footer-nav"> 
+                        <li> 
+                            <a rel="nofollow noreferrer" target="_blank" href="https://www.linkedin.com/in/set-get-56486b219/"> About us </a> 
+                        </li> 
+                        <li> 
+                            <a rel="nofollow noreferrer" target="_blank" href="{{url_for('main.guide')}}"> Guide to Set&Get </a> 
+                        </li> 
+                    </ul> 
+                </div> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    <ul class="footer-nav"> 
+                        <li> 
+                            <a href="{{url_for('main.faq')}}"> FAQ's </a> 
+                        </li> 
+                        <li> 
+                            <a href="{{url_for('main.terms')}}"> Terms of Service </a> 
+                        </li> 
+                    </ul> 
+                </div> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    Follow Us On:-
+                    <ul class="footer-nav" style="display: flex;padding-left: 0;"> 
+                        <li> 
+                            <a href="https://www.facebook.com/profile.php?id=100063086880666"><i class="fab fa-facebook-square" style="font-size: 40px;color: blue;margin: 0 20px 0 0;"></i></a> 
+                        </li> 
+                        <li> 
+                            <a href="https://www.instagram.com/set_get_community/"><i class="fab fa-instagram" style="font-size: 40px;color: blue;margin: 0 20px;"></i></a> 
+                        </li> 
+                        <li> 
+                            <a href="https://twitter.com/SetGetCommunity"><i class="fab fa-twitter-square" style="font-size: 40px;color: blue;margin: 0 20px;"></i> </a> 
+                        </li> 
+                        <li> 
+                            <a href="https://www.linkedin.com/in/set-get-56486b219/"><i class="fab fa-linkedin" style="font-size: 40px;color: blue;margin: 0 20px;"></i></a> 
+                        </li> 
+                    </ul> 
+                </div> 
+            </div> 
+        </div> 
+    </footer>
+
+
+{% block scripts %}
+{{ pagedown.include_pagedown() }}
+{% endblock %}
+
+
+<!-- Javascript link -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script>
+var textWrapper = document.querySelector('.first-animation');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.first-animation .letter',
+    translateX: [40,0],
+    translateZ: 0,
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 1200,
+    delay: (el, i) => 500 + 30 * i
+  }).add({
+    targets: '.first-animation .letter',
+    translateX: [0,-30],
+    opacity: [1,0],
+    easing: "easeInExpo",
+    duration: 1100,
+    delay: (el, i) => 100 + 30 * i
+  });
+
+  var textWrapper = document.querySelector('.second-animation');
+  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+  
+  anime.timeline({loop: true})
+    .add({
+      targets: '.second-animation .letter',
+      translateX: [40,0],
+      translateZ: 0,
+      opacity: [0,1],
+      easing: "easeOutExpo",
+      duration: 1200,
+      delay: (el, i) => 500 + 30 * i
+    }).add({
+      targets: '.second-animation .letter',
+      translateX: [0,-30],
+      opacity: [1,0],
+      easing: "easeInExpo",
+      duration: 1100,
+      delay: (el, i) => 100 + 30 * i
+    });
+</script>
+
+
+
+{% endblock %}
+

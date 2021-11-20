@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% block head %}
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/followers.css')}}">
+
+{% endblock %}
+{% block title %}Bills Reminder- {{ title }} {{ user.username }}{% endblock %}
+
+{% block body %}
+<section id="welcome-section" style="margin-top: 100px;">
+        <div class="container-fluid grey-container" style="margin-top: 200px;">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <div class="image-div">
+                        <img src="../static/img/image.png" class="home-image" alt="">
+                    </div>
+                </div>
+                <div class="container col-lg-5 col-md-6 col-sm-12" style="margin-left: 30px;">
+                    <div class="page-header container" style="margin-top: 40px;">
+                        <h2>{{ title }} {{ user.username }}</h2>
+                    </div>
+                    <table class="table table-hover followers">
+                        <thead style="background: blue;color: white;"><tr><th>User</th>
+                                    <th>Since</th>
+                            </tr></thead>
+                        {% for follow in follows %}
+
+                        <tr>
+                            <td>
+                                <a style='text-decoration:none' href="{{ url_for('.user', username = follow.user.username) }}">
+
+                                    {% if current_user.is_authenticated%}
+                                    {% if follow.user.photo!= None %}
+                                        <img style="border-radius: 50%" width=40px height=40px class="img-rounded profile-thumbnail"
+                                            src="{{url_for('static', filename= follow.user.photo)}}">
+                                    {% else %}
+                                        <img class="img-rounded profile-thumbnail" src="{{ follow.user.gravatar(size=32) }}">
+                                    {% endif %}
+                                    {% endif %}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {{ follow.user.username }}
+                                </a>
+                            </td>
+                            <td>{{ moment(follow.timestamp).format('L') }}</td>
+                        </tr>
+
+                        {% endfor %}
+                    </table>
+                    <div class="pagination justify-content-center">
+                        {{ macros.pagination_widget(pagination, endpoint, username = user.username) }}
+                    </div>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <div class="cir1"></div>
+    <div class="cir2"></div>
+    <div class="cir3"></div>
+    <div class="cir4"></div>
+    <div class="cir5"></div>
+    <div class="cir6"></div>
+{% endblock %}

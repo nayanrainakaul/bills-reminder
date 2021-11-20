@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% block head %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!-- Page title -->
+<title>Set and Get Guide</title>
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/guide.css')}}">
+{% endblock %}
+{% block body %}
+
+      <div class="container col-lg-6 col-md-10 col-sm-12" style="margin-top: 150px;">
+        <h1>Step by Step</h1>
+        <h1>Guide To Set&Get</h1>
+        <p>Easy access to setting daily or weekly reminders as per your schedule. Receive reminders via email for convenience. A platform keeping check on your daily/weekly/monthly expenditures and creating a statistics for the same. Receive financial advice and interact with other people on the community built platform.</p>
+        <h2>Home Page</h2>
+        <img src="../static/img/g1.png" class="guide-image" alt="">
+        <p>When you visit our site, the first page that will be visible to you is the home page as shown above. </p>
+        <h2>Navigation Bar</h2>
+        <img src="../static/img/nav.png" class="guide-image" style="height: 40px;box-shadow: 5px 5px 10px #bbb9b9;" alt="">
+        <p>On all the pages at the top you will be able to see navigation bar to acess other pages easily.</p>
+        <img src="../static/img/guide-get-started.png" class="guide-image" alt="">
+        <p>On the home page, when you click on the 'Get Started-It's Free!' button, you will be taken to the login page from where you can login into your account. If you are a new user you will have to register first.</p>
+        <img src="../static/img/guide-helpguide.png" class="guide-image" alt="">
+        <p>Next to 'Get Started-It's Free!' button, there is 'Helpguide to Set&Get' as pointed by the arrow which will take you to the step by step guide page of Set&Get.</p>
+        <img src="../static/img/guide-home.png" class="guide-image" alt="">
+        <p>In the navigation bar, if you click on the 'Home' tab, you will be taken to the home page of Set&Get.</p>
+        <h2>Footer</h2>
+        <img src="../static/img/g2.png" class="guide-image" style="height: 130px;box-shadow: 5px 5px 10px #bbb9b9;" alt="">
+        <p>Footer is provided on the home page and the community page at the bottom to provide you with the quick links. If you click on the 'Contact Us' link, you will be directed to mail where you can send your query to us via email. 'About Us' link will take you to the linkedIn profile of Set&Get community. A quick link to the guide is also provide in footer so that you can easily access it from other pages. 'FAQ's' link will take you to the frequently asked questions and 'Terms of Service' will take you to the terms and condition page. You can visit our social media sites and follow us by clicking on the given icons.</p>
+        <h2>Community</h2>
+        <img src="../static/img/guide-community.png" class="guide-image" alt="">
+        <p>By clicking on the community tab on the navigation bar, you will be taken to the Set&Get community page which is shown below.</p>
+        <img src="../static/img/g3.png" class="guide-image" alt="">
+        <p>On the community page, you will be able to see all the question and answers provided by other user, but you won't be able to post any question unless you are a registered member of our site.</p>
+        <h2>Add Reminder</h2>
+        <img src="../static/img/guide-add.png" class="guide-image" alt="">
+        <p>By clicking on the 'Add Reminder' tab on the navigation bar, you will be taken to the page where you can add your bill reminders. </p>
+        <img src="../static/img/g4.png" class="guide-image" alt="">
+        <p>If you are not a registered member of our site, you won't be able to add reminder, and will be able to see the add reminder page locked as shown above.</p>
+        <h2>Show Reminder</h2>
+        <img src="../static/img/guide-showrem.png" class="guide-image" alt="">
+        <p>By clicking on the 'Show Reminder' tab on the navigation bar, you will be taken to the page where you can see all your bill reminders. </p>
+        <img src="../static/img/g5.png" class="guide-image" alt="">
+        <p>If you are not a registered member of our site, you won't be able to see reminder, and will be able to see the show reminder page locked as shown above.</p>
+        <h2>Login</h2>
+        <img src="../static/img/guide-login.png" class="guide-image" alt="">
+        <p>Click on the login button as indicated by arrow in given picture to login to our site and take advantage of all the amazing feature that is provided to you so you can save time and energy.</p>
+        <img src="../static/img/g6.png" class="guide-image" alt="">
+        <p>On the login page, enter your email and password to enter into your account. If you are a new user, then you will have to register first. To register click on 'Click here to register' link, after which you will be taken to register page as shown below.</p>
+        <h2>Register Page</h2>
+        <img src="../static/img/g7.png" class="guide-image" alt="">
+        <p>On the register page, fill your information and click on register. A mail will be sent to your registered email id. After you login to your account for the first time, you will have to confirm your account through the sent email first.</p>
+        <h2>Forgot Password</h2>
+        <img src="../static/img/g8.png" class="guide-image" alt="">
+        <p>If you forget your password, then click on the 'Forgot Password' link provided on the login page. You will be taken to reset password page, where you will have to enter your registered email id, on which we will send auto generated password for your account which can be used to enter into your account. After you login into your account, you are advised to change your password.</p>
+        <h2>After Login</h2>
+        <img src="../static/img/guide-nav-2.png" class="guide-image" style="height: 40px;box-shadow: 5px 5px 10px #bbb9b9;" alt="">
+        <p>When you will login into your account, your navigation bar will show an additional tab 'Profile' where all details related to your account are stored. Your profile pic will be displayed adjacent to 'Profile' tab, by clicking on which a dropdown menu will appear which will provide you option to change password, change email and logout from your account.</p>
+        <h2>Post Question on community page</h2>
+        <img src="../static/img/g9.png" class="guide-image" alt="">
+        <p>When you login into your account you will be able to post your query on the community page from where other members will be able to respond to your query.</p>
+        <h2>Edit Post</h2>
+        <img src="../static/img/guide-comm-question.png" class="guide-image" alt="">
+        <p>You can edit your post by clicking on the edit button as indicated by the arrow in the above picture. After clicking on the edit button you will be sent to edit post page as shown below.</p>
+        <img src="../static/img/g19.png" class="guide-image" alt="">
+        <p>You can edit your post or delete your post from here.</p>
+        <h2>Answer on post</h2>
+        <img src="../static/img/guide-comm-answer.png" class="guide-image" alt="">
+        <p>You can answer query of other members in the field provided which is indicated by the arrow in the given picture.</p>
+        <h2>Add Reminder</h2>
+        <img src="../static/img/g10.png" class="guide-image" alt="">
+        <p>After login into your account you will be able to add reminder. Provide all the necessary details and click on send to save your reminder or click on discard if you don't want to set the reminder.</p>
+        <h2>Show Reminder</h2>
+        <img src="../static/img/guide-show.png" class="guide-image" alt="">
+        <p>After login into your account you will be able to see all your reminder (Upcoming as well as paid). Click on upcoming to see upcoming bills or on paid to see all the bills that you have already paid.</p>
+        <h2>Edit Reminder</h2>
+        <img src="../static/img/guide-show-2.png" class="guide-image" alt="">
+        <p>You can edit your reminder by clicking on the edit button as indicated by arrow in the above picture.</p>
+        <h2>Profile</h2>
+        <img src="../static/img/g15.png" class="guide-image" alt="">
+        <p>Click on 'Profile' tab in navigation bar to go to your profile page. On your profile page in the top section, you will be able to see your profile picture, username, name, member since, last seen, number of questions you have posted, number of answers you have given, number of your follower and people you are following.</p>
+        <img src="../static/img/g16.png" class="guide-image" alt="">
+        <p>You can also see the analysis section of your expenditure on the profile page. Categorized analysis of the expenditure is provided to the user for better visualization.</p>
+        <img src="../static/img/g17.png" class="guide-image" alt="">
+        <p>You can easily access all the question that you have posted on your profile page.</p>
+        <img src="../static/img/g18.png" class="guide-image" alt="">
+        <p>Details related to your account is also provided in the details section of profile page.</p>
+        <h2>Edit Profile</h2>
+        <img src="../static/img/guide-edit-profile.png" class="guide-image" alt="">
+        <p>To edit details related to your account click on the edit button provided on profile page.</p>
+        <img src="../static/img/guide-edit-profile-submit.png" class="guide-image" alt="">
+        <p>After clicking on the 'Edit Profile' button you will be taken to a different page where you will have to provide the necessary details. After filling the form, click on submit to permanently change the details.</p>
+        <img src="../static/img/guide-delete-account.png" class="guide-image" alt="">
+        <p>Click on the delete button provided in the edit profile page TO DELETE YOUR ACCOUNT. </p>
+        <p>NOTE: ONCE YOUR ACCOUNT IS DELETED WE WON'T BE ABLE TO RETRIEVE THE INFORMATION RELATED TO YOUR ACCOUNT WHICH WAS STORED IN IT.</p>
+        <h2>Followers</h2>
+        <img src="../static/img/guide-followers.png" class="guide-image" alt="">
+        <p>By clicking on the followers, you will be taken to the page where you will be able to see all the members who are following you as shown below.</p>
+        <img src="../static/img/g21.png" class="guide-image" alt="">
+        <h2>Following</h2>
+        <img src="../static/img/guide-following.png" class="guide-image" alt="">
+        <p>By clicking on the following, you will be taken to the page where you will be able to see all the members whom you are following as shown below.</p>
+        <img src="../static/img/g22.png" class="guide-image" alt="">
+        <h2>Change Password or Email</h2>
+        <img src="../static/img/guide-change-email-pass.png" class="guide-image" alt="">
+        <p>Click on the dropdown icon on the navigation bar as indicated by the arrow.</p>
+        <h2>Change Password</h2>
+        <img src="../static/img/guide-change-password.png" class="guide-image" alt="">
+        <p>Click on the change password option in the dropdown menu to go to the page where you can change your account's password.</p>
+        <img src="../static/img/g23.png" class="guide-image" alt="">
+        <p>Provide the old password and new password to change the old password to new password on your account.</p>
+        <h2>Change Email</h2>
+        <img src="../static/img/guide-change-email.png" class="guide-image" alt="">
+        <p>Click on the change email option in the dropdown menu to go to the page where you can change the email id registered with your account.</p>
+        <img src="../static/img/g24.png" class="guide-image" alt="">
+        <p>Provide the new email id and your current password to change your email address.</p>
+        <h2>Logout</h2>
+        <img src="../static/img/guide-logout.png" class="guide-image" alt="">
+        <p>To logout from your account, click on the logout button provided in the dropdown menu.</p>
+    </div>
+
+    <footer class="site-footer container-fluid" style="margin-top: 100px;"> 
+        <div class="wrap-size-lg container-fluid" style="padding: 35px;"> 
+            <h3>About SET &amp; GET</h3> 
+            <div class="row grid-spacing-sm"> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    <ul class="footer-nav"> 
+                        <li> 
+                            <a rel="nofollow noreferrer" href="mailto:set.get567@gmail.com"> Contact us </a> 
+                        </li> 
+                        <li> 
+                            <a href="https://github.com/apoorva-01/Bills-Web-App-Using-Flask"> Github Repository </a> 
+                        </li> 
+                    </ul> 
+                </div> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    <ul class="footer-nav"> 
+                        <li> 
+                            <a rel="nofollow noreferrer" target="_blank" href="https://www.linkedin.com/in/set-get-56486b219/"> About us </a> 
+                        </li> 
+                        <li> 
+                            <a rel="nofollow noreferrer" target="_blank" href="{{url_for('main.guide')}}"> Guide to Set&Get </a> 
+                        </li> 
+                    </ul> 
+                </div> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    <ul class="footer-nav"> 
+                        <li> 
+                            <a href="{{url_for('main.faq')}}"> FAQ's </a> 
+                        </li> 
+                        <li> 
+                            <a href="{{url_for('main.terms')}}"> Terms of Service </a> 
+                        </li> 
+                    </ul> 
+                </div> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    Follow Us On:-
+                    <ul class="footer-nav" style="display: flex;padding-left: 0;"> 
+                        <li> 
+                            <a href="https://www.facebook.com/profile.php?id=100063086880666"><i class="fab fa-facebook-square" style="font-size: 40px;color: blue;margin: 0 20px 0 0;"></i></a> 
+                        </li> 
+                        <li> 
+                            <a href="https://www.instagram.com/set_get_community/"><i class="fab fa-instagram" style="font-size: 40px;color: blue;margin: 0 20px;"></i></a> 
+                        </li> 
+                        <li> 
+                            <a href="https://twitter.com/SetGetCommunity"><i class="fab fa-twitter-square" style="font-size: 40px;color: blue;margin: 0 20px;"></i> </a> 
+                        </li> 
+                        <li> 
+                            <a href="https://www.linkedin.com/in/set-get-56486b219/"><i class="fab fa-linkedin" style="font-size: 40px;color: blue;margin: 0 20px;"></i></a> 
+                        </li> 
+                    </ul> 
+                </div> 
+            </div> 
+        </div> 
+    </footer>
+{% endblock %}

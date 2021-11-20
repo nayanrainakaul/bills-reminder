@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block head %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!-- Page title -->
+<title>FAQ's</title>
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/faq.css')}}">
+{% endblock %}
+{% block body %}
+
+    <div class="container col-lg-6 col-md-10 col-sm-12" style="margin-top: 150px;">
+
+
+        <h2>Frequently Asked Question On Set&Get</h2>
+
+        <button class="accordion">Why set & get?</button>
+        <div class="panel">
+        <p>Set & Get is an app used to stay organized and get more done. It’s a FREE bill reminder app. People use Set & Get to, set bill reminders and plan their day – minus the typical hassle & costs. Supporting a minimalist design alongside powerful features, Set & Get is suitable for any individual who would like to make the most out of their time.!</p>
+        </div>
+
+        <button class="accordion">How can Set & Get help me get my tasks done?</button>
+        <div class="panel">
+        <p>We live in a very task oriented society where success is dependent on completing tons of tasks everyday. In this overloaded world, it is easy to feel overwhelmed and bogged down by the plethora of things we need to do. That’s where Set & Get steps in – helping people take control, manage their busy lives, and feel good while doing it.
+            With Set & Get, you can quickly set your reminders, add notifications, set customizable reminders, directly email your reminder, and sync your tasks across platforms.
+            Our Help Center includes everything you need to know. Read up so you can get the most possible out of your Set & Get experience!
+            You’ve got this!</p>
+        </div>
+
+        <button class="accordion">Where can I find a guide on how to use the features?</button>
+        <div class="panel">
+        <p>Right here on our support site! Navigate to the home page and choose 'Guide to Set&Get' button or the quick link provided in footer.
+            Alternatively, checkout our video-tutorials for a quick overview.
+        </p>    
+        </div>
+
+        <button class="accordion">How do I report a bug?</button>
+        <div class="panel">
+        <p>If you find a bug in the app, please let us know right away so we can fix it as quickly as possible. Click on 'Contact Us', the quick link provided in footer from where you will be directed to mail so that you can send your problem to us via email.</p>
+        </div>
+
+        <button class="accordion">Where can I find help?</button>
+        <div class="panel">
+        <p>You can find how to use all of the app’s features on our Guide to Set&Get. There, you can find articles detailing on how to take advantage of any and all Set & Get  features! If you cannot find your answer simply use the Contact Us to reach out to our Support Team.</p>
+        </div>
+
+        <button class="accordion">Is my account data secure?</button>
+        <div class="panel">
+        <p>All of the data from your account is securely stored on our hosted servers and cannot be accessed by unauthorized parties. All transportation from the client to the server is encrypted.</p>
+        </div>
+
+        <button class="accordion">Will I be charged to use Set&Get</button>
+        <div class="panel">
+        <p>No, you won't be charged even a penny on this app to set your bill reminder. It’s a FREE bill reminder app.
+            It is a platform to keep check on your expenditures and creating a statistics for the same.You can also receive financial advice and interact with other people on the community built platform at no cost.
+            
+        </p>
+        </div>
+
+    </div>
+
+<footer class="site-footer container-fluid" style="padding: 0;margin-top: 100px;"> 
+        <div class="wrap-size-lg container-fluid" style="padding: 35px;"> 
+            <h3>About SET &amp; GET</h3> 
+            <div class="row grid-spacing-sm"> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    <ul class="footer-nav"> 
+                        <li> 
+                            <a rel="nofollow noreferrer" href="mailto:set.get567@gmail.com"> Contact us </a> 
+                        </li> 
+                        <li> 
+                            <a href="https://github.com/apoorva-01/Bills-Web-App-Using-Flask"> Github Repository </a> 
+                        </li> 
+                    </ul> 
+                </div> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    <ul class="footer-nav"> 
+                        <li> 
+                            <a rel="nofollow noreferrer" target="_blank" href="https://www.linkedin.com/in/set-get-56486b219/"> About us </a> 
+                        </li> 
+                        <li> 
+                            <a rel="nofollow noreferrer" target="_blank" href="{{url_for('main.guide')}}"> Guide to Set&Get </a> 
+                        </li> 
+                    </ul> 
+                </div> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    <ul class="footer-nav"> 
+                        <li> 
+                            <a href="{{url_for('main.faq')}}"> FAQ's </a> 
+                        </li> 
+                        <li> 
+                            <a href="{{url_for('main.terms')}}"> Terms of Service </a> 
+                        </li> 
+                    </ul> 
+                </div> 
+                <div class="footer-div col-lg-2 col-md-2 col-sm-6"> 
+                    Follow Us On:-
+                    <ul class="footer-nav" style="display: flex;padding-left: 0;"> 
+                        <li> 
+                            <a href="https://www.facebook.com/profile.php?id=100063086880666"><i class="fab fa-facebook-square" style="font-size: 40px;color: blue;margin: 0 20px 0 0;"></i></a> 
+                        </li> 
+                        <li> 
+                            <a href="https://www.instagram.com/set_get_community/"><i class="fab fa-instagram" style="font-size: 40px;color: blue;margin: 0 20px;"></i></a> 
+                        </li> 
+                        <li> 
+                            <a href="https://twitter.com/SetGetCommunity"><i class="fab fa-twitter-square" style="font-size: 40px;color: blue;margin: 0 20px;"></i> </a> 
+                        </li> 
+                        <li> 
+                            <a href="https://www.linkedin.com/in/set-get-56486b219/"><i class="fab fa-linkedin" style="font-size: 40px;color: blue;margin: 0 20px;"></i></a> 
+                        </li> 
+                    </ul> 
+                </div> 
+            </div> 
+        </div> 
+    </footer>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+    </script>
+
+{% endblock %}

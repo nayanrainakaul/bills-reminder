@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>{% block title%}{% endblock%}</title>
+    <!-- Page Icon -->
+    <link rel="icon" href="{{url_for('static', filename='img/B.png')}}">
+    <!-- CSS Sheet-->
+    <link  href="{{ url_for('static', filename='css/errors.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">{% block body%}{% endblock%}
+        <img src="{{url_for('static', filename='img/perfect1.png')}}" alt="error">
+</div>
+</body>
+</html>

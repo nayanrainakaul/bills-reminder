@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block head %}
+<!-- Page title -->
+<title>Show Reminders</title>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/show_reminders.css')}}">
+
+
+{% endblock %}
+{% block body %}
+<!-- main container -->
+<div class="container" style="margin-top: 150px;">
+  <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="image-div">
+              <img src="../static/img/show-rem.jpg" class="home-image" alt="">
+          </div>
+      </div>
+    <div class="tabs col-lg-8 col-md-6 col-sm-12">
+    <!-- Show Reminder heading -->
+    {% if current_user.is_authenticated %}
+    <h2 class="heading">All Your Reminders, {{current_user.name}}</h2>
+
+    <!-- Tab Header -->
+    <div class="tab-header">
+      <div class="active"><i class="fas fa-arrow-circle-up"></i> UPCOMING <a class="badge badge-primary" href="">{{total_unpaid}}</a></div>
+ 
+      <div><i class="fas fa-thumbs-up"></i> PAID <a class="badge badge-primary" href="">{{total_paid}}</a></div>
+    </div>
+
+    <!-- Tab Indicator -->
+    <div class="tab-indicator"></div>
+
+    <!-- Tab Body -->
+    <div class="tab-body">
+      <div class="active" style="width: 100%;">
+        <h2>Upcoming Bills</h2>
+        <table class="table table-hover src-table" style="background: blue;">
+          <thead class="thead-primary" style="color: white;">
+            <tr>
+              <th scope="col">Bill Name</th>
+              <th scope="col">Bill Category</th>
+              <th scope="col">Date of Add</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody style="background: white;">
+            
+            {% for i in entry %}
+            {% if i.paidUnpaid=='Unpaid' %}
+            <tr>
+              <td>{{i.billName}}</td>
+              <td>{{i.billCategory}}</td>
+              <td>{{i.dateOfAdd}}</td>
+              <td>{{i.amount}}</td>
+              <form action="/bill-paid/{{i.id}}" method="post">
+              <td><a class='btn btn-primary' href="{{ url_for('auth.bill_paid',id=i.id) }}">Paid</a></td>
+              </form>
+              <form action="/edit_bill_entry/{{i.id}}" method="post"></form>
+              <td><a class='btn btn-danger' href="{{ url_for('auth.edit_bill_entry',id=i.id) }}">Edit</a></td>
+              </form>
+            </tr>
+            {% endif %}
+            {% endfor %}
+           
+          </tbody>
+        </table>
+      </div>
+
+
+      <div>
+        <h2>Paid Bills</h2>
+        <table class="table table-hover src-table" style="background: blue;">
+          <thead class="thead-primary" style="color: white;">
+            <tr>
+              <th scope="col">Bill Name</th>
+              <th scope="col">Bill Category</th>
+              <th scope="col">Date of Add</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody style="background: white;">
+            {% for i in entry %}
+            {% if i.paidUnpaid=='Paid' %}
+            <tr>
+              <td>{{i.billName}}</td>
+              <td>{{i.billCategory}}</td>
+              <td>{{i.dateOfAdd}}</td>
+              <td>{{i.amount}}</td>
+              <form action="/bill-unpaid/{{i.id}}" method="post">
+                <td><a class='btn btn-primary' href="{{ url_for('auth.bill_unpaid',id=i.id) }}">Unpaid</a></td>
+               </form>
+            </tr>
+            {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% else %}
+      <div class="container show-con">
+        <center style="margin-top: 15%;">
+          <h2 class="show-unauth"><i class="fas fa-lock" style="font-size: 60px;margin-bottom: 15px;"></i> <br> Please log in to see all your Reminders</h2>
+          <a class='btn btn-primary m-lg-3 pl-3' href="{{url_for('auth.login')}}">Login</a>
+          <a class='btn btn-primary m-lg-3 pl-3' href="{{url_for('auth.register',username=current_user.username)}}">Sign
+            up</a>
+        </center>
+      </div>
+      {% endif %}
+  </div>
+</div>
+</div>
+<div class="cir1"></div>
+<div class="cir2"></div>
+<div class="cir3"></div>
+<div class="cir4"></div>
+<div class="cir5"></div>
+<div class="cir6"></div>
+
+
+<!-- Javascript link -->
+
+<script src="{{url_for('static', filename='js/show_reminders.js')}}" charset="utf-8"></script>
+
+{% endblock %}
+
+

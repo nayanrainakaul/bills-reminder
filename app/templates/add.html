@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% block head %}
+<!-- Page title -->
+<title>Add Reminder</title>
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/add_style.css')}}">
+
+{% endblock %}
+{% block body %}
+<section id="welcome-section">
+        <div class="container-fluid grey-container" >
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="hero-content" style="width: 90%;margin-left: 5%;"> 
+                        <!-- Form heading -->
+                        {% if current_user.is_authenticated %}
+                        <h2>Add New Bill Reminder, {{current_user.name|capitalize }}</h2>
+
+
+                        <!-- Form Container -->
+                        <form action="/add" class="add-item" method="post" novalidate>
+                            <!-- Bill Name Field -->
+                            <div class="form-group">
+                                <label for="Bill Name" class="col-lg-4 col-md-3 col-form-label">Bill Name : </label>
+                                <input type="text" id="Bill Name" name="bill_name" class="form-control" placeholder="Enter Bill Name" required>
+                            </div>
+
+                            <!-- Bill Category Field -->
+                            <div class="form-group">
+                                <label for="Bill Category" class="col-lg-4 col-md-3 col-form-label">Bill Category : </label>
+                                <select id="Bill-Category" name="bill_category" class="form-control" required>
+                                    <option value="">Choose Bill Category</option>
+                                    <option value="Accommodation">Accommodation</option>
+                                    <option value="Credit Cards">Credit Cards</option>
+                                    <option value="Electricity">Electricity</option>
+                                    <option value="TV">TV</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Car">Car</option>
+                                    <option value="Two wheeler">Two wheeler</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Gifts">Gifts</option>
+                                    <option value="Insurance">Insurance</option>
+                                    <option value="Medicare">Medicare</option>
+                                    <option value="Pets">Pets</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Shopping">Shopping</option>
+                                    <option value="Tax">Tax</option>
+                                    <option value="Vacation">Vacation</option>
+                                    <option value="Investment">Investment</option>
+                                    <option value="Savings">Savings</option>
+                                    <option value="Child Care">Child Care</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <!-- Amount Field -->
+                            <div class="form-group">
+                                <label for="Amount" class="col-lg-4 col-md-3 col-form-label">Amount : </label>
+                                <input type="number" id="Amount" name="amount" class="form-control" placeholder="Enter Bill Amount" required>
+                            </div>
+
+                            <!-- Due Date Field -->
+                            <div class="form-group">
+                                <label for="Due date" class="col-lg-4 col-md-3 col-form-label">Due date : </label>
+                                <input type="date" id="Due date" name="due_date" class="form-control" placeholder="Enter Due Date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Notification" class="col-lg-4 col-md-3 col-form-label">Send Notification On : </label>
+                                <input type="number" id="Notification-Reminder" class="form-control" name="notification_reminder"
+                                    placeholder="How many days" required>
+                            </div>
+
+
+                            <!-- Repeat and Don't Repeat Radio Button Field -->
+                            <div class="choice-btn">
+
+                                <!-- Repeat and Don't Repeat Radio Button Option -->
+                                <label for="radio_1 radio-text">
+                                    <input type="radio" name="answer" name='repeat' class="radio-button" value="repeat">
+                                    Repeat
+                                </label>
+                                <label for="radio_2 radio-text">
+                                    <input type="radio" name="answer" name='dont_repeat' checked="checked" class="radio-button"
+                                        value="don'tRepeat">
+                                    Don't Repeat
+                                </label>
+
+                                <!-- Additional Fields for Repeat Option -->
+                                <div id="ifYes" style="display:none;">
+                                    Repetition Number : <input type='number' class="form-control" name='repeat_days' id="Amount" name='yes'><br>
+                                    Repetition Option :
+                                    <select id="Repetition-Reminder" name='repeat_time' class="form-control">
+                                        <option value="">Choose One</option>
+                                        <option value="day">Day/Days</option>
+                                        <option value="week">Week/Weeks</option>
+                                        <option value="month">Month/Months</option>
+                                        <option value="year">Year/Years</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <!-- Note Textarea -->
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1" class="col-lg-4 col-md-3 col-form-label note-text">Note : </label>
+                                <textarea class="form-control" name='note' id="note-field" placeholder="Enter Note..." rows="3"></textarea>
+                            </div>
+
+                            <!-- Discard and Save Buttons -->
+                            <div class="end-buttons">
+                                <!-- <button name="discard" type="button" class="btn btn-success discard-btn"><i class="fas fa-trash-alt"></i> Discard</button>
+                                                <button name="submit" type="submit" class="btn btn-success save-btn"><i class="far fa-save"></i> Save</button> -->
+
+                                <input class="btn discard-btn" type="submit" name="submit" value="Discard" placeholder="Discard">
+                                <input class="btn save-btn" type="submit" name="submit" value="Send" placeholder="Submit">
+
+                            </div>
+                        </form>
+                        {% else %}
+                        <div class="container col-lg-12 col-md-12 col-sm-12" style="position: absolute;top: 10%;margin-left: 5%;">
+                            <center>
+                                <h2 style="padding:0;"><i class="fas fa-lock" style="font-size: 60px;margin-bottom: 15px;"></i> <br> Please Login to add Bill Reminders</h2>
+                                <a class='btn btn-primary m-lg-3 pl-3' href="{{url_for('auth.login')}}">Login</a>
+                                <a class='btn btn-primary m-lg-3 pl-3' href="{{url_for('auth.register',username=current_user.username)}}">Sign
+                                    up</a>
+                            </center>
+                        </div>
+
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <div class="image-div">
+                        <img src="../static/img/add7.png" class="home-image" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+{% block scripts %}
+{{ pagedown.include_pagedown() }}
+{% endblock %}
+
+<!-- Repeat Radio Button Jquery Link -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("input[type='radio']").change(function() {
+        if ($(this).val() === "repeat") {
+            $("#ifYes").show(800);
+        } else {
+            $("#ifYes").hide(800);
+        }
+    });
+});
+</script>
+
+
+
+{% endblock %}
+

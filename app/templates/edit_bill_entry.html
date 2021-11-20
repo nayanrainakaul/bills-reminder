@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block head %}
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/followers.css')}}">
+
+{% endblock %}
+
+{% block body %}
+<div style="margin-top:200px"class="page-header container col-lg-6 col-md-10 col-sm-12">
+    <h1>Edit Bill Entry</h1>
+
+
+{% import "bootstrap/wtf.html" as wtf %}
+<form class="form form-horizontal" method="post" role="form" style="text-align: left;">
+{{ wtf.form_field(form.bill_name ) }}
+{{ wtf.form_field(form.amount) }}
+{{ wtf.form_field(form.note) }}
+<center>
+    {{ wtf.form_field(form.submit, class="btn btn-success") }}
+    {{ wtf.form_field(form.discard, class="btn btn-danger") }}
+</center>
+</form>
+
+</div>
+<div class="cir1"></div>
+<div class="cir2"></div>
+<div class="cir3"></div>
+<div class="cir4"></div>
+<div class="cir5"></div>
+<div class="cir6"></div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}
+
+

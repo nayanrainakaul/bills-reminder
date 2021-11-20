@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.4.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <title>charts</title>
+</head>
+<body>
+    <div class="container" style="width: 55%;height: 85vh;float: left;">
+        <h1 style="text-align: center;">Yearly Expenditure</h1>
+        <canvas id="mychart"></canvas>
+    </div>
+    <div class="chart-container" style="position: relative;width:45%;height:88vh;float: right;">
+        <h1 style="text-align: center;">Last Month's Expenditure</h1>
+        <canvas id="doughnut-chart" width=80% height=74%></canvas>
+    </div>
+
+
+    <script type="text/javascript">
+
+        
+        const formatter = (value, ctx) => {
+        const otherDatasetIndex = ctx.datasetIndex === 0 ? 1 : 0;
+        const total =
+            ctx.chart.data.datasets[otherDatasetIndex].data[ctx.dataIndex] + value;
+
+        return `${(value / total * 100).toFixed(0)}%`;
+        };
+
+        const data = [{
+            label: 'Accomodation',
+            backgroundColor: "rgb(204, 102, 102)",
+            data: [2100, 2200, 3500, 5500, 5500, 5600, 6000,6010, 6200,6435,565,1423],
+            
+        },
+        {
+            label: 'Credit card',
+            backgroundColor: "rgb(230, 0, 230)",
+            data: [1200, 1200, 1300, 2060, 2070, 4000, 4020, 4050,7351,3353,8675,2545],
+            
+        },
+        {
+            label: 'Electricity',
+            backgroundColor: "rgb(102, 102, 255)",
+            data:[2000, 300, 2400, 3060, 3070, 4050, 3020, 3030, 4050,7565,8675,1753],
+        },
+        {
+            label: 'TV',
+            backgroundColor: "rgb(0, 153, 51)",
+            data: [3000, 1800, 3400, 4060, 4070, 5000, 4200, 2030, 2050,8906,7460,3770],
+        },
+        {
+            label: 'Education',
+            backgroundColor: "rgb(179, 179, 0)",
+            data: [4000, 4300, 5060, 5030, 5070, 5500, 5020, 1030, 3050,3870,3960,1500],
+        },
+        {
+            label: 'Car' ,
+            backgroundColor: "rgb(255, 77, 148)",
+            data: [1400, 1400, 1400, 2030, 2070, 4100, 4020, 4030,7690,3545,6250,2700],
+        },
+        {
+            label: 'Two wheeler' ,
+            backgroundColor: "rgb(77, 0, 153)",
+            data: [6500, 2200, 1300, 1400, 1060, 2070, 4000, 4020, 4050,2300,4680,4650],
+        },
+        {
+            label: 'Food' ,
+            backgroundColor: "rgb(51, 204, 204)",
+            data: [6400, 1400, 1400, 2030, 2070, 4100, 4020, 4030,7690,3545,6250,7700],
+        },
+        {
+            label: 'Gifts' ,
+            backgroundColor: "rgb(51, 255, 119)",
+            data: [1400, 1400, 1400, 2030, 2070, 4100, 4020, 4030,7690,3545,6250,7700],
+        },
+        {
+            label: 'Insurance',
+            backgroundColor: "rgb(204, 102, 255)",
+            data: [1000, 1200, 1300, 1400, 1060, 2030, 2070, 4000, 4100, 4020, 4030, 4050],
+        },
+        {
+            label: 'Medicare' ,
+            backgroundColor: "rgb(128, 128, 0)",
+            data: [1400, 1400, 1400, 2030, 2070, 4100, 4020, 4030,690,3545,6250,7700],
+        },
+        {
+            label: 'Pets' ,
+            backgroundColor: "rgb(102, 102, 153)",
+            data:  [5000, 1200, 1300, 1400, 1060, 2030, 2070, 4000, 4100, 4020, 4030, 4050],
+        },
+        {
+            label:'Sports' ,
+            backgroundColor: "rgb(255, 153, 0)",
+            data:  [1000, 1200, 1300, 1400, 1060, 2030, 2070, 4000, 4100, 4020, 4030, 4050],
+        },
+        {
+            label: 'Shopping',
+            backgroundColor: "rgb(0, 102, 204)",
+            data:  [5000, 1200, 4300, 5400, 1060, 2030, 2070, 2000, 4100, 4020, 2030, 1050],
+        },
+        {
+            label: 'Tax' ,
+            backgroundColor: "rgb(153, 153, 102)",
+            data:  [5000, 1200, 4300, 1400, 1060, 2030, 2070, 4000, 0, 2020, 4030, 4050],
+        },
+        {
+            label: 'Vacation' ,
+            backgroundColor: "rgb(102, 153, 153)",
+            data:  [1000, 4200, 4300, 5400, 1060, 2030, 2070, 4000,0, 2020, 2030, 4050],
+        },
+        {
+            label: 'Insurance' ,
+            backgroundColor: "rgb(252, 174, 174)",
+            data:  [1000, 5200, 5300, 6400, 1060, 2030, 2070, 2000, 4100, 2020, 2030, 4050],
+        },
+        {
+            label: 'Savings' ,
+            backgroundColor: "rgb(0, 255, 153)",
+            data:  [1000, 1200, 1300, 1400, 1060, 2030, 2070, 4000, 4100, 4020, 2030, 4050],
+        },
+        {
+            label: 'Child care' ,
+            backgroundColor: "rgb(230, 230, 0)",
+            data:  [4000, 1200, 1300, 1400, 1060, 2030, 2070, 4000, 4100, 4020, 4030, 4050],
+        },
+        ];
+
+        const options = {
+        maintainAspectRatio: false,
+        spanGaps: false,
+        responsive: true,
+        legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+            fontColor: "#000",
+            boxWidth: 34,
+            fontFamily: "proximanova"
+            }
+        },
+        tooltips: {
+            mode: "label",
+            callbacks: {
+            label: function(tooltipItem, data) {
+                const type = data.datasets[tooltipItem.datasetIndex].label;
+                const value =
+                data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                let total = 0;
+                for (let i = 0; i < data.datasets.length; i++)
+                total += data.datasets[i].data[tooltipItem.index];
+                if (tooltipItem.datasetIndex !== data.datasets.length - 1) {
+                return (
+                    type + " : " + value.toFixed(0).replace(/(\d)(?=(\d{3})+\.)/g, "1,")
+                );
+                } else {
+                return [
+                    type +
+                    " : " +
+                    value.toFixed(0).replace(/(\d)(?=(\d{3})+\.)/g, "1,"),
+                    "Overall : " + total
+                ];
+                }
+            }
+            }
+        },
+        plugins: {
+            datalabels: {
+            color: "#white",
+            display: false,
+            align: "center"
+            }
+        },
+        
+        scales: {
+
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                display: false
+                },
+                ticks: {
+                fontColor: "#000"
+                }
+            },
+            {
+                type: 'category',
+                offset: true,
+                position: 'top',
+                ticks: {
+                fontColor: "#000",
+                callback: function(value, index, values) {
+                    return data[0].data[index] + data[1].data[index] + data[2].data[index] + data[3].data[index]+ data[4].data[index] + data[5].data[index] + data[6].data[index] + data[7].data[index] + data[8].data[index] + data[9].data[index] + data[10].data[index] + data[11].data[index] + data[12].data[index] + data[13].data[index] + data[14].data[index] + data[15].data[index] + data[16].data[index] + data[17].data[index] + data[18].data[index] 
+                }
+                }
+            }
+            ],
+            yAxes: [{
+            stacked: true,
+            display: false,
+            ticks: {
+                fontColor: "#000"
+            }
+            }]
+        }
+        };
+
+        const ctx = document.getElementById("mychart").getContext("2d");
+
+        new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: ["JAN", "FEB", "MARCH", "APRIL", "MAY", "JUNE","JULY", "AUG", "SEP", "OCT", "NOV", "DEC"],
+            datasets: data
+        },
+        options: options
+        });
+
+
+
+
+
+        new Chart(document.getElementById("doughnut-chart"), {
+            type: 'doughnut',
+            data: {
+            labels: ['accomodation', 'credit card','electricity','TV','Education','Car','Two wheeler',
+            'Food','Gifts','Insurance','Medicare','Pets','Sports','Shopping','Tax','Vacation','Investment',
+            'Savings','Child care','Other'],
+            datasets: [
+                {
+                backgroundColor: ["rgb(204, 102, 102)", "rgb(230, 0, 230)","rgb(102, 102, 255)","rgb(0, 153, 51)","rgb(179, 179, 0)","rgb(255, 77, 148)", "rgb(77, 0, 153)", "rgb(51, 204, 204)", "rgb(51, 255, 119)", "rgb(204, 102, 255)","rgb(128, 128, 0)","rgb(102, 102, 153)","rgb(255, 153, 0)","rgb(0, 102, 204)","rgb(153, 153, 102)","rgb(102, 153, 153)","rgb(252, 174, 174)","rgb(0, 255, 153)","rgb(230, 230, 0)"],
+                
+                
+                data: ['{{accommodation_sum}}',"{{credit_sum}}","{{electricity_sum}}","{{tv_sum}}",
+                "{{education_sum}}","{{car_sum}}","{{twowheeler_sum}}","{{food_sum}}","{{gifts_sum}}",
+                "{{insurance_sum}}","{{medicare_sum}}","{{pet_sum}}","{{sports_sum}}","{{shopping_sum}}",
+                "{{tax_sum}}","{{vacation_sum}}","{{investment_sum}}",
+                "{{savings_sum}}","{{child_sum}}","{{other_sum}}"],
+                datalabels:{
+                display:false,
+                color:"black",
+                    },
+                },
+            ],
+            }
+            })
+    </script>
+</body>
+</html>

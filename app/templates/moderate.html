@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block head %}
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/post&comments.css')}}">
+{% endblock %}
+
+{% import "_macros.html" as macros %}
+<title>Comment Moderation</title>
+{% block body  %}
+<div class="page-header container main-con">
+    <h1>Comment Moderation</h1>
+
+{% set moderate = True %}
+{% include '_comments.html' %}
+
+{% if pagination %}
+<div class="pagination justify-content-center" style="margin-top: 4%;">
+    {{ macros.pagination_widget(pagination, '.moderate') }}
+</div>
+</div>
+{% endif %}
+{% endblock %}

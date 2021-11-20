@@ -86,7 +86,7 @@ Take These Steps to configure the Project :
 
 * Clone The Repository
 ```
-git clone https://github.com/apoorva-01/Bills-Reminder-Using-Flask-and-Celery
+git clone https://github.com/nayanrainakaul/Bills-Reminder-Using-Flask-and-Celery
 ```
 
 * Create a virtual environment(Code is for Windows Only)
